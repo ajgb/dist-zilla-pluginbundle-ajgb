@@ -87,7 +87,7 @@ sub configure {
         ),
         [
             AutoMetaResources => {
-                'repository.github' => [{ user => 'ajgb' }],
+                'repository.github' => 'user:ajgb',
                 'bugtracker.rt' => 1,
                 'homepage' => 'http://search.cpan.org/dist/%{dist}',
             },
