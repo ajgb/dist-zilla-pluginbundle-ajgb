@@ -1,5 +1,9 @@
 Revision history for  Dist-Zilla-PluginBundle-AJGB
 
-0.01    Wed Nov  3 23:51:16 2010
-        First version.
+1.103210    Wed Nov 17 14:52:04 2010
+            Config::MVP::Assembler::WithBundles::_add_bundle_contents does not
+            support hashrefs, use plain string
+
+0.01        Wed Nov  3 23:51:16 2010
+            First version.
 
