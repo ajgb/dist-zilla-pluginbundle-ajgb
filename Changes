@@ -1,4 +1,8 @@
-Revision history for  Dist-Zilla-PluginBundle-AJGB
+Revision history for Dist-Zilla-PluginBundle-AJGB
+
+1.103270    Tue Nov 23 20:35:01 2010
+            Add and use Pod::Weaver::PluginBundle::AJGB
+            Use Dist::Zilla::Plugin::Authority 
 
 1.103210    Wed Nov 17 14:52:04 2010
             Config::MVP::Assembler::WithBundles::_add_bundle_contents does not
