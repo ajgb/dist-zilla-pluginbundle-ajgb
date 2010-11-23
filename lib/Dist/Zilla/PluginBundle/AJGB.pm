@@ -37,8 +37,14 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     [InstallGuide]
     [KwaliteeTests]
     [PortabilityTests]
-    [PodWeaver]
     [ReadmeFromPod]
+
+    [Authority]
+    authority = cpan:AJGB
+    do_metadata = 1
+
+    [PodWeaver]
+    config_plugin = @AJGB
 
 =pod
 
@@ -74,7 +80,6 @@ sub configure {
             InstallGuide
             KwaliteeTests
             PortabilityTests
-            PodWeaver
             ReadmeFromPod
         ),
         (
@@ -91,6 +96,17 @@ sub configure {
                 'bugtracker.rt' => 1,
                 'homepage' => 'http://search.cpan.org/dist/%{dist}',
             },
+        ],
+        [
+            Authority => {
+                authority => 'cpan:AJGB',
+                do_metadata => 1,
+            }
+        ],
+        [
+            PodWeaver => {
+                config_plugin => '@AJGB',
+            }
         ],
     );
 }
