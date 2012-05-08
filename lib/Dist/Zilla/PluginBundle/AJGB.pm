@@ -82,11 +82,11 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     time_zone = Europe/London
     filename = Changes
     format = %-6v %{yyyy-MM-dd HH:mm:ss}d
+    [Git::Commit]
+    time_zone = Europe/London
     [Git::Tag]
     filename = Changes
     tag_format = %v
-    [Git::Commit]
-    time_zone = Europe/London
     [Git::Push]
 
 =pod
