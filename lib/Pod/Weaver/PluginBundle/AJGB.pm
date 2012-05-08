@@ -39,11 +39,10 @@ sub mvp_bundle_config {
 
         [ '@AJGB/Postlude',     _exp('Region'),     { region_name   => 'postlude'       } ],
 
-        [ '@AJGB/SeeAlso',      _exp('SeeAlso'),    {} ],
-
         [ '@AJGB/Authors',      _exp('Authors'),    {} ],
         [ '@AJGB/Legal',        _exp('Legal'),      {} ],
     );
 }
 
 1;
+
