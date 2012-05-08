@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
-{{NEXT}}
+{{$NEXT}}
     use git plugins
     drop PodWeaver..SeeAlso
 
