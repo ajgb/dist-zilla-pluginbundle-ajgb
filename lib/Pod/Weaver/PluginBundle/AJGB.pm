@@ -9,6 +9,8 @@ use Pod::Weaver::Config::Assembler;
 
 Pod::Weaver configuration used by L<Dist::Zilla::PluginBundle::AJGB>.
 
+=for Pod::Coverage mvp_bundle_config
+
 =cut
 
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
