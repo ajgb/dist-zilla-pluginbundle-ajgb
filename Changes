@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
+{{NEXT}}
+    use git plugins
+    drop PodWeaver..SeeAlso
+
 1.103270    Tue Nov 23 20:35:01 2010
             Add and use Pod::Weaver::PluginBundle::AJGB
             Use Dist::Zilla::Plugin::Authority 
