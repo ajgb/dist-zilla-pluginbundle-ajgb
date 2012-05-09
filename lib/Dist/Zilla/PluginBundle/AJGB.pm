@@ -8,6 +8,7 @@ package Dist::Zilla::PluginBundle::AJGB;
 use Moose;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+
 =head1 SYNOPSIS
 
     # dist.ini
@@ -41,6 +42,7 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     [PruneCruft]
     [ManifestSkip]
 
+    [PkgVersion]
     [Authority]
     authority = cpan:AJGB
     do_metadata = 1
@@ -143,6 +145,9 @@ sub configure {
 
     # FileMunger
     $self->add_plugins(
+        qw(
+          PkgVersion
+        ),
         [
             Authority => {
                 authority   => 'cpan:AJGB',

@@ -34,6 +34,7 @@ DESCRIPTION
         [PruneCruft]
         [ManifestSkip]
 
+        [PkgVersion]
         [Authority]
         authority = cpan:AJGB
         do_metadata = 1
