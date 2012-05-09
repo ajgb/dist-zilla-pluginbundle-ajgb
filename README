@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::PluginBundle::AJGB - Dist::Zilla plugins for AJGB
 
 VERSION
-    version 2.00
+    version 2.01
 
 SYNOPSIS
         # dist.ini
