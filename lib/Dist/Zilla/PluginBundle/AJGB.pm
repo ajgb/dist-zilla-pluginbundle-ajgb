@@ -125,6 +125,8 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     format = %-6v %{yyyy-MM-dd HH:mm:ss}d
     [Git::Commit]
     time_zone = Europe/London
+    allow_dirty = README
+    allow_dirty = Changes
     [Git::Tag]
     filename = Changes
     tag_format = v%v
@@ -274,7 +276,11 @@ sub configure {
                 tag_format => 'v%v',
             }
         ],
-        [ 'Git::Commit'      => { time_zone     => 'Europe/London', } ],
+        [ 'Git::Commit'      => {
+                time_zone     => 'Europe/London',
+                allow_dirty     => [ 'README', 'Changes' ],
+            }
+        ],
         qw(
           Git::Push
         ),
