@@ -41,7 +41,6 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     [PruneCruft]
     [ManifestSkip]
 
-    [ExtraTests]
     [Authority]
     authority = cpan:AJGB
     do_metadata = 1
@@ -144,9 +143,6 @@ sub configure {
 
     # FileMunger
     $self->add_plugins(
-        qw(
-          ExtraTests
-        ),
         [
             Authority => {
                 authority   => 'cpan:AJGB',

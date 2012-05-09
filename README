@@ -34,7 +34,6 @@ DESCRIPTION
         [PruneCruft]
         [ManifestSkip]
 
-        [ExtraTests]
         [Authority]
         authority = cpan:AJGB
         do_metadata = 1
