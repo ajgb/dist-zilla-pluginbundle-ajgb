@@ -1,24 +1,27 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
 {{$NEXT}}
-      Fix tag format
+
+2.02   2012-05-09 21:02:37
+    Fix tag format
+    Commit Changes and README after release
 
 2.01   2012-05-09 20:28:40
-       Add missing PkgVersion
-       Use plugins for AutoPrereqs
+    Add missing PkgVersion
+    Use plugins for AutoPrereqs
 
 2.00   2012-05-09 20:05:54
-       use git plugins
-       drop PodWeaver..SeeAlso
+    use git plugins
+    drop PodWeaver..SeeAlso
 
 1.103270    Tue Nov 23 20:35:01 2010
-            Add and use Pod::Weaver::PluginBundle::AJGB
-            Use Dist::Zilla::Plugin::Authority 
+    Add and use Pod::Weaver::PluginBundle::AJGB
+    Use Dist::Zilla::Plugin::Authority 
 
 1.103210    Wed Nov 17 14:52:04 2010
-            Config::MVP::Assembler::WithBundles::_add_bundle_contents does not
-            support hashrefs, use plain string
+    Config::MVP::Assembler::WithBundles::_add_bundle_contents does not
+    support hashrefs, use plain string
 
 0.01        Wed Nov  3 23:51:16 2010
-            First version.
+    First version.
 

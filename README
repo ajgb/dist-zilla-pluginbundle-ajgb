@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::PluginBundle::AJGB - Dist::Zilla plugins for AJGB
 
 VERSION
-    version 2.01
+    version 2.02
 
 SYNOPSIS
         # dist.ini
@@ -77,9 +77,11 @@ DESCRIPTION
         format = %-6v %{yyyy-MM-dd HH:mm:ss}d
         [Git::Commit]
         time_zone = Europe/London
+        allow_dirty = README
+        allow_dirty = Changes
         [Git::Tag]
         filename = Changes
-        tag_format = %v
+        tag_format = v%v
         [Git::Push]
 
 AUTHOR
