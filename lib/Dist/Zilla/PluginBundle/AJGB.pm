@@ -127,7 +127,7 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     time_zone = Europe/London
     [Git::Tag]
     filename = Changes
-    tag_format = %v
+    tag_format = v%v
     [Git::Push]
 
 =pod
@@ -271,7 +271,7 @@ sub configure {
         [
             'Git::Tag' => {
                 filename   => 'Changes',
-                tag_format => '%v',
+                tag_format => 'v%v',
             }
         ],
         [ 'Git::Commit'      => { time_zone     => 'Europe/London', } ],

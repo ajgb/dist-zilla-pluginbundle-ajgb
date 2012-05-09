@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
 {{$NEXT}}
+      Fix tag format
 
 2.01   2012-05-09 20:28:40
        Add missing PkgVersion
