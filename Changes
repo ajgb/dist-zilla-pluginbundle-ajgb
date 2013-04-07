@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
 {{$NEXT}}
+    NOTICES:
+        Just warn about untracked files in Git::Check
 
 2.02   2012-05-09 21:02:37
     Fix tag format

@@ -64,6 +64,7 @@ DESCRIPTION
         allow_dirty = Changes
         allow_dirty = dist.ini
         allow_dirty = README
+        untracked_files = warn
         [CheckChangesHasContent]
         [CheckExtraTests]
         [TestRelease]
