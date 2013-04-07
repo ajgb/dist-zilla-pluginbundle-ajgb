@@ -112,6 +112,7 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     allow_dirty = Changes
     allow_dirty = dist.ini
     allow_dirty = README
+    untracked_files = warn
     [CheckChangesHasContent]
     [CheckExtraTests]
     [TestRelease]
@@ -244,7 +245,10 @@ sub configure {
     $self->add_plugins(
         [
             'Git::Check' =>
-              { allow_dirty => [ 'README', 'dist.ini', 'weaver.ini', ], }
+              {
+                  allow_dirty => [ 'README', 'dist.ini', 'weaver.ini', ],
+                  untracked_files => 'warn',
+              }
         ],
         qw(
           CheckChangesHasContent
