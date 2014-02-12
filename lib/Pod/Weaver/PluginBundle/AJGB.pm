@@ -19,7 +19,7 @@ sub mvp_bundle_config {
     return (
         [ '@AJGB/CorePrep',     _exp('@CorePrep'),  {} ],
 
-        [ '@AJGB/Encoding',     _exp('-Encoding'),  {} ],
+        [ '@AJGB/SingleEncoding', _exp('-SingleEncoding'), {} ],
 
         [ '@AJGB/Name',         _exp('Name'),       {} ],
         [ '@AJGB/Version',      _exp('Version'),    {} ],
