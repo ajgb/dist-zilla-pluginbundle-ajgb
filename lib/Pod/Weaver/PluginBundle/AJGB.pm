@@ -1,7 +1,7 @@
+#ABSTRACT: Pod::Weaver configuration for AJGB
 use strict;
 use warnings;
 package Pod::Weaver::PluginBundle::AJGB;
-#ABSTRACT: Pod::Weaver configuration for AJGB
 
 use Pod::Weaver::Config::Assembler;
 
@@ -19,7 +19,7 @@ sub mvp_bundle_config {
     return (
         [ '@AJGB/CorePrep',     _exp('@CorePrep'),  {} ],
 
-        [ '@AJGB/Encoding',     _exp('-Encoding'),  {} ],
+        [ '@AJGB/Encoding',     _exp('-SingleEncoding'),  {} ],
 
         [ '@AJGB/Name',         _exp('Name'),       {} ],
         [ '@AJGB/Version',      _exp('Version'),    {} ],

@@ -1,6 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-AJGB
 
 {{$NEXT}}
+    Update to use the current names of modules
+    Use github for issues tracking
+    Some minor refactoring
 
 2.03   2013-04-07 23:45:50
     NOTICES:

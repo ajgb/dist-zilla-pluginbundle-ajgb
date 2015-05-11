@@ -1,9 +1,9 @@
+#ABSTRACT: Dist::Zilla plugins for AJGB
 use strict;
 use warnings;
 
 package Dist::Zilla::PluginBundle::AJGB;
 
-# ABSTRACT: Dist::Zilla plugins for AJGB
 
 use Moose;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -19,9 +19,9 @@ use Dist::Zilla::Plugin::Manifest ();
 use Dist::Zilla::Plugin::Test::Compile ();
 use Dist::Zilla::Plugin::PodCoverageTests ();
 use Dist::Zilla::Plugin::PodSyntaxTests ();
-use Dist::Zilla::Plugin::EOLTests ();
-use Dist::Zilla::Plugin::NoTabsTests ();
-use Dist::Zilla::Plugin::KwaliteeTests ();
+use Dist::Zilla::Plugin::Test::EOL ();
+use Dist::Zilla::Plugin::Test::NoTabs ();
+use Dist::Zilla::Plugin::Test::Kwalitee ();
 use Dist::Zilla::Plugin::Test::Portability ();
 use Dist::Zilla::Plugin::Test::Synopsis ();
 use Dist::Zilla::Plugin::PruneCruft ();
@@ -35,9 +35,9 @@ use Dist::Zilla::Plugin::AutoPrereqs ();
 use Dist::Zilla::Plugin::MakeMaker ();
 use Dist::Zilla::Plugin::ModuleBuild ();
 use Dist::Zilla::Plugin::InstallGuide ();
-use Dist::Zilla::Plugin::ReadmeFromPod ();
 use Dist::Zilla::Plugin::Git::NextVersion ();
 use Dist::Zilla::Plugin::CopyFilesFromBuild ();
+use Dist::Zilla::Plugin::ReadmeFromPod ();
 use Dist::Zilla::Plugin::Git::Check ();
 use Dist::Zilla::Plugin::CheckChangesHasContent ();
 use Dist::Zilla::Plugin::CheckExtraTests ();
@@ -73,11 +73,10 @@ This is the plugin bundle for AJGB. It's an equivalent to:
     [Test::Compile]
     [PodCoverageTests]
     [PodSyntaxTests]
-    [EOLTests]
-    [NoTabsTests]
-    [KwaliteeTests]
+    [Test::EOL]
+    [Test::NoTabs]
+    [Test::Kwalitee]
     [Test::Portability]
-    [Test::Synopsis]
 
     [PruneCruft]
     [ManifestSkip]
@@ -91,9 +90,14 @@ This is the plugin bundle for AJGB. It's an equivalent to:
 
     [MetaConfig]
     [AutoMetaResources]
-    bugtracker.rt = 1
+    bugtracker.github = user:ajgb
     repository.github = user:ajgb
-    homepage = http://search.cpan.org/dist/%{dist}
+    homepage = https://metacpan.org/release/%{dist}
+
+    [Prereqs / TestRequires]
+    Test::Pod::Coverage = 0
+    Test::Pod = 0
+    Pod::Coverage::TrustPod = 0
 
     [AutoPrereqs]
     [MakeMaker]
@@ -146,18 +150,14 @@ This is the plugin bundle for AJGB. It's an equivalent to:
 sub configure {
     my $self = shift;
 
-    my $payload = $self->payload;
-
+    my @plugins = (
     # Dirs
-    $self->add_plugins(
         qw(
           ExecDir
           ShareDir
-        )
-    );
+        ),
 
     # FileGatherer
-    $self->add_plugins(
         [
             GatherDir =>
               { exclude_filename => [ 'README', 'dist.ini', 'weaver.ini', ], }
@@ -170,24 +170,20 @@ sub configure {
           Test::Compile
           PodCoverageTests
           PodSyntaxTests
-          EOLTests
-          NoTabsTests
-          KwaliteeTests
+          Test::EOL
+          Test::NoTabs
+          Test::Kwalitee
           Test::Portability
           Test::Synopsis
         ),
-    );
 
     # FilePruner
-    $self->add_plugins(
         qw(
           PruneCruft
           ManifestSkip
         ),
-    );
 
     # FileMunger
-    $self->add_plugins(
         qw(
           PkgVersion
         ),
@@ -198,51 +194,39 @@ sub configure {
             }
         ],
         [ PodWeaver          => { config_plugin => '@AJGB', } ],
-    );
 
     # MetaProvider
-    $self->add_plugins(
         qw(
           MetaConfig
         ),
         [
             AutoMetaResources => {
+                'bugtracker.github' => 'user:ajgb',
                 'repository.github' => 'user:ajgb',
-                'bugtracker.rt'     => 1,
-                'homepage' => 'http://search.cpan.org/dist/%{dist}',
+                'homepage' => 'https://metacpan.org/release/%{dist}',
             },
         ],
-    );
 
     # PrereqSource
-    $self->add_plugins(
         qw(
           AutoPrereqs
           MakeMaker
           ModuleBuild
         ),
-    );
 
     # PrereqSource / InstallTool
-    $self->add_plugins(
         qw(
           ReadmeFromPod
           InstallGuide
         ),
-    );
 
     # VersionProvider
-    $self->add_plugins(
         [ 'Git::NextVersion' => { first_version => '0.01', } ],
-    );
 
     # AfterBuild
-    $self->add_plugins(
         [ CopyFilesFromBuild => { copy          => 'README', } ],
-    );
 
     # BeforeRelease
-    $self->add_plugins(
         [
             'Git::Check' =>
               {
@@ -256,17 +240,13 @@ sub configure {
           TestRelease
           ConfirmRelease
         ),
-    );
 
     # Releaser
-    $self->add_plugins(
         qw(
           UploadToCPAN
-        )
-    );
+        ),
 
     # AfterRelease
-    $self->add_plugins(
         [
             NextRelease => {
                 time_zone => 'Europe/London',
@@ -289,6 +269,8 @@ sub configure {
           Git::Push
         ),
     );
+
+    $self->add_plugins( @plugins );
 }
 
 1;
